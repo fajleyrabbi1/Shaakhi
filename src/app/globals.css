@@ -1,0 +1,455 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   SHAAKHI — Design System Global Styles
+   Bangladesh Social Justice Platform
+   ============================================ */
+
+@layer base {
+  :root {
+    --color-bg-primary: 248 250 252;
+    --color-bg-secondary: 241 245 249;
+    --color-bg-card: 255 255 255;
+    --color-text-primary: 15 23 42;
+    --color-text-secondary: 71 85 105;
+    --color-text-muted: 148 163 184;
+    --color-border: 226 232 240;
+    --color-border-hover: 203 213 225;
+    --color-accent: 225 29 72;
+    --color-accent-hover: 190 18 60;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --color-bg-primary: 15 23 42;
+    --color-bg-secondary: 30 41 59;
+    --color-bg-card: 30 41 59;
+    --color-text-primary: 241 245 249;
+    --color-text-secondary: 148 163 184;
+    --color-text-muted: 100 116 139;
+    --color-border: 51 65 85;
+    --color-border-hover: 71 85 105;
+    --color-accent: 244 63 94;
+    --color-accent-hover: 225 29 72;
+  }
+
+  * {
+    @apply border-surface-200 dark:border-surface-700;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-surface-50 text-surface-900 dark:bg-surface-950 dark:text-surface-100 font-sans antialiased;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  /* Bangla text rendering */
+  .font-bangla,
+  [lang="bn"] {
+    font-family: "Hind Siliguri", sans-serif;
+    line-height: 1.8;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-brand-500/20 text-brand-900 dark:text-brand-100;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-300 dark:bg-surface-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-surface-400 dark:bg-surface-500;
+  }
+
+  /* Focus ring */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-500/50 ring-offset-2 ring-offset-surface-50 dark:ring-offset-surface-950;
+  }
+}
+
+@layer components {
+  /* ===== Glass Morphism ===== */
+  .glass {
+    @apply bg-white/80 dark:bg-surface-800/80 backdrop-blur-lg border border-white/20 dark:border-surface-700/50;
+  }
+
+  .glass-card {
+    @apply bg-white/90 dark:bg-surface-800/90 backdrop-blur-md border border-surface-200/50 dark:border-surface-700/50 rounded-xl shadow-glass dark:shadow-glass-dark;
+  }
+
+  .glass-nav {
+    @apply bg-white/95 dark:bg-surface-900/95 backdrop-blur-xl border-b border-surface-200/80 dark:border-surface-700/80;
+  }
+
+  /* ===== Card Styles ===== */
+  .card {
+    @apply bg-white dark:bg-surface-800 rounded-xl border border-surface-200 dark:border-surface-700 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:border-brand-300 dark:hover:border-brand-600 hover:-translate-y-0.5;
+  }
+
+  .card-interactive {
+    @apply card-hover cursor-pointer active:scale-[0.99];
+  }
+
+  /* ===== Button Styles ===== */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-200 focus-visible:ring-2 focus-visible:ring-brand-500/50 disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.97];
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-500 text-white hover:bg-brand-600 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply btn bg-surface-100 dark:bg-surface-700 text-surface-700 dark:text-surface-200 hover:bg-surface-200 dark:hover:bg-surface-600 border border-surface-200 dark:border-surface-600;
+  }
+
+  .btn-ghost {
+    @apply btn text-surface-600 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800;
+  }
+
+  .btn-danger {
+    @apply btn bg-critical-500 text-white hover:bg-critical-600;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-brand-500 text-brand-500 hover:bg-brand-500 hover:text-white;
+  }
+
+  .btn-icon {
+    @apply inline-flex items-center justify-center rounded-lg p-2 text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors duration-200;
+  }
+
+  /* ===== Badge / Tag Styles ===== */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-critical {
+    @apply badge bg-critical-100 dark:bg-critical-900/50 text-critical-700 dark:text-critical-300 border border-critical-200 dark:border-critical-800;
+  }
+
+  .badge-high {
+    @apply badge bg-high-100 dark:bg-high-900/50 text-high-700 dark:text-high-300 border border-high-200 dark:border-high-800;
+  }
+
+  .badge-medium {
+    @apply badge bg-medium-100 dark:bg-medium-900/50 text-medium-700 dark:text-medium-300 border border-medium-200 dark:border-medium-800;
+  }
+
+  .badge-positive {
+    @apply badge bg-positive-100 dark:bg-positive-900/50 text-positive-700 dark:text-positive-300 border border-positive-200 dark:border-positive-800;
+  }
+
+  .badge-neutral {
+    @apply badge bg-neutral_accent-100 dark:bg-neutral_accent-900/50 text-neutral_accent-700 dark:text-neutral_accent-300 border border-neutral_accent-200 dark:border-neutral_accent-800;
+  }
+
+  .badge-default {
+    @apply badge bg-surface-100 dark:bg-surface-700 text-surface-600 dark:text-surface-300 border border-surface-200 dark:border-surface-600;
+  }
+
+  /* ===== Status Indicators ===== */
+  .status-dot {
+    @apply w-2.5 h-2.5 rounded-full;
+  }
+
+  .status-no_action {
+    @apply status-dot bg-critical-500 animate-pulse-glow;
+  }
+
+  .status-investigating {
+    @apply status-dot bg-medium-500;
+  }
+
+  .status-in_court {
+    @apply status-dot bg-high-500;
+  }
+
+  .status-resolved {
+    @apply status-dot bg-positive-500;
+  }
+
+  .status-abandoned {
+    @apply status-dot bg-surface-500;
+  }
+
+  /* ===== Severity Border Accent ===== */
+  .severity-critical {
+    @apply border-l-4 border-l-critical-500;
+  }
+
+  .severity-high {
+    @apply border-l-4 border-l-high-500;
+  }
+
+  .severity-medium {
+    @apply border-l-4 border-l-medium-500;
+  }
+
+  .severity-positive {
+    @apply border-l-4 border-l-positive-500;
+  }
+
+  .severity-neutral {
+    @apply border-l-4 border-l-neutral_accent-500;
+  }
+
+  /* ===== Skeleton Loading ===== */
+  .skeleton {
+    @apply bg-surface-200 dark:bg-surface-700 rounded-lg animate-shimmer;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+  }
+
+  /* ===== Input Styles ===== */
+  .input {
+    @apply w-full rounded-lg border border-surface-300 dark:border-surface-600 bg-white dark:bg-surface-800 px-4 py-2.5 text-sm text-surface-900 dark:text-surface-100 placeholder-surface-400 dark:placeholder-surface-500 focus:border-brand-500 dark:focus:border-brand-400 focus:ring-2 focus:ring-brand-500/20 transition-all duration-200;
+  }
+
+  .input-error {
+    @apply input border-critical-500 focus:border-critical-500 focus:ring-critical-500/20;
+  }
+
+  /* ===== Days Without Justice Counter ===== */
+  .justice-counter {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  .justice-counter-critical {
+    @apply justice-counter bg-critical-50 dark:bg-critical-900/30 text-critical-600 dark:text-critical-400 border border-critical-200 dark:border-critical-800 animate-pulse-glow;
+  }
+
+  .justice-counter-warning {
+    @apply justice-counter bg-high-50 dark:bg-high-900/30 text-high-600 dark:text-high-400 border border-high-200 dark:border-high-800;
+  }
+
+  .justice-counter-normal {
+    @apply justice-counter bg-surface-100 dark:bg-surface-700 text-surface-600 dark:text-surface-400 border border-surface-200 dark:border-surface-600;
+  }
+
+  /* ===== Timeline ===== */
+  .timeline-line {
+    @apply absolute left-4 top-8 bottom-0 w-0.5 bg-surface-200 dark:bg-surface-700;
+  }
+
+  .timeline-dot {
+    @apply relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-sm;
+  }
+
+  .timeline-dot-completed {
+    @apply timeline-dot bg-positive-500 text-white;
+  }
+
+  .timeline-dot-pending {
+    @apply timeline-dot bg-surface-200 dark:bg-surface-700 text-surface-400 dark:text-surface-500 border-2 border-dashed border-surface-300 dark:border-surface-600;
+  }
+
+  .timeline-dot-active {
+    @apply timeline-dot bg-brand-500 text-white animate-pulse-glow;
+  }
+
+  /* ===== Container ===== */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-section {
+    @apply py-6 sm:py-8;
+  }
+
+  /* ===== Reaction Button ===== */
+  .reaction-btn {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer select-none;
+  }
+
+  .reaction-btn-active {
+    @apply reaction-btn bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 border border-brand-200 dark:border-brand-800;
+  }
+
+  .reaction-btn-inactive {
+    @apply reaction-btn bg-surface-50 dark:bg-surface-800 text-surface-500 dark:text-surface-400 border border-surface-200 dark:border-surface-700 hover:bg-surface-100 dark:hover:bg-surface-700;
+  }
+
+  /* ===== Tooltip ===== */
+  .tooltip {
+    @apply absolute z-50 px-2 py-1 text-xs font-medium text-white bg-surface-900 dark:bg-surface-100 dark:text-surface-900 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but allow scrolling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-brand-700;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-medium-500 to-high-500;
+  }
+
+  /* Hover reveal */
+  .hover-reveal {
+    @apply opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+  }
+
+  /* Line clamp for text overflow */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Responsive grid helpers */
+  .feed-grid {
+    @apply grid grid-cols-1 gap-4;
+  }
+
+  /* No-select for interactive elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+/* ===== Tiptap Editor Styles ===== */
+.tiptap-editor .ProseMirror {
+  @apply min-h-[200px] p-4 focus:outline-none text-surface-900 dark:text-surface-100;
+}
+
+.tiptap-editor .ProseMirror p {
+  @apply mb-3;
+}
+
+.tiptap-editor .ProseMirror h1 {
+  @apply text-2xl font-bold mb-4;
+}
+
+.tiptap-editor .ProseMirror h2 {
+  @apply text-xl font-bold mb-3;
+}
+
+.tiptap-editor .ProseMirror h3 {
+  @apply text-lg font-semibold mb-2;
+}
+
+.tiptap-editor .ProseMirror ul {
+  @apply list-disc pl-6 mb-3;
+}
+
+.tiptap-editor .ProseMirror ol {
+  @apply list-decimal pl-6 mb-3;
+}
+
+.tiptap-editor .ProseMirror a {
+  @apply text-brand-500 hover:text-brand-600 underline;
+}
+
+.tiptap-editor .ProseMirror blockquote {
+  @apply border-l-4 border-brand-300 pl-4 italic text-surface-600 dark:text-surface-400 my-3;
+}
+
+.tiptap-editor .ProseMirror p.is-editor-empty:first-child::before {
+  @apply text-surface-400 dark:text-surface-600;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* ===== Leaflet Map Overrides ===== */
+.leaflet-container {
+  @apply rounded-xl;
+  z-index: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  @apply bg-white dark:bg-surface-800 text-surface-900 dark:text-surface-100 shadow-xl rounded-xl border border-surface-200 dark:border-surface-700;
+}
+
+.leaflet-popup-tip {
+  @apply bg-white dark:bg-surface-800;
+}
+
+/* ===== Recharts Overrides ===== */
+.recharts-cartesian-axis-tick-value {
+  @apply fill-surface-500 dark:fill-surface-400 text-xs;
+}
+
+.recharts-legend-item-text {
+  @apply text-surface-700 dark:text-surface-300 !important;
+}
+
+/* ===== Page Transitions ===== */
+.page-enter {
+  animation: fadeIn 0.3s ease-out, slideUp 0.4s ease-out;
+}
+
+/* ===== Breaking Banner ===== */
+.breaking-banner {
+  @apply relative overflow-hidden;
+  background: linear-gradient(135deg, #991b1b 0%, #dc2626 50%, #991b1b 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== Print styles ===== */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
